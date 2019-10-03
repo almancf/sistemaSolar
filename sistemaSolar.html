@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        #general{
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+        .planeta{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 7px 10px 5px white;
+        }
+        .planeta img{
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let sistemaSolar = {
+
+            mercurio: {
+                nombre: 'mercurio',
+                color: 'gris',
+                temperatura: 350,
+                imagen: 'https://www.astromia.com/fotosolar/fotos/planetamercurio.jpg'
+
+            },
+            venus: {
+                nombre: 'venus',
+                color: 'blanco',
+                temperatura: 460,
+                imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Venus-real_color.jpg/220px-Venus-real_color.jpg'
+
+            },
+            tierra: {
+                nombre: 'tierra',
+                color: 'morado',
+                temperatura: 14,
+                imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/5a0ab2a75bafe87f4d3f9a63/acaba-tiempo_0.jpg'
+            },
+            marte: {
+                nombre: 'marte',
+                color: 'rojo',
+                temperatura: -46,
+                imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/55365b6b34099b0279c8fb2e/slide-marte.jpg'
+            },
+            jupiter: {
+                nombre: 'jupiter',
+                color: 'marrón',
+                temperatura: -121,
+                imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jupiter_by_Cassini-Huygens.jpg/280px-Jupiter_by_Cassini-Huygens.jpg'
+            },
+            saturno: {
+                nombre: 'saturno',
+                color: 'amarillo',
+                temperatura: -130,
+                imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/558d2b15010e26221b57df75/saturno.jpg'
+            },
+            urano: {
+                nombre: 'urano',
+                color: 'azul',
+                temperatura: -205,
+                imagen: 'http://www.manzanares.es/v2/sites/paseo/img/urano/urano1.jpg'
+            },
+            neptuno: {
+                nombre: 'neptuno',
+                color: 'azul',
+                temperatura: -220,
+                imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/280px-Neptune_Full.jpg'
+            },
+            pluton: {
+                nombre: 'plutón',
+                color: 'blanco',
+                temperatura: -229,
+                imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Nh-pluto-in-true-color_2x_JPEG.jpg/1200px-Nh-pluto-in-true-color_2x_JPEG.jpg'
+            }
+
+        };
+        let { mercurio, venus, tierra, marte, jupiter, saturno, urano, neptuno, pluton } = sistemaSolar;
+
+        let planeta1 = window.prompt("Indica un planeta: ").toLowerCase();
+        if (sistemaSolar[planeta1]) {
+            let planeta2 = window.prompt("Indica un planeta: ").toLowerCase();
+            if (sistemaSolar[planeta2] && planeta2 != planeta1) {
+                let planeta3 = window.prompt("Indica un planeta: ").toLowerCase();
+                if (sistemaSolar[planeta3] && (planeta3 != planeta1 && planeta3 != planeta2)) {
+                    document.write(`
+                <div id="general">
+                    <div class="planeta">
+                        <h1>${planeta1.toUpperCase()}</h1>
+                        <img src=${sistemaSolar[planeta1].imagen} alt=${planeta1}>
+                        <p>Color: ${sistemaSolar[planeta1].color}</p>
+                        <p>Temperatura: ${sistemaSolar[planeta1].temperatura}</p>
+                    </div>
+                    <div class="planeta">
+                        <h1>${planeta2.toUpperCase()}</h1>
+                        <img src=${sistemaSolar[planeta2].imagen} alt=${planeta2}>
+                        <p>Color: ${sistemaSolar[planeta2].color}</p>
+                        <p>Temperatura: ${sistemaSolar[planeta2].temperatura}</p>
+                    </div>
+                    <div class="planeta">
+                        <h1>${planeta3.toUpperCase()}</h1>
+                        <img src=${sistemaSolar[planeta3].imagen} alt=${planeta3}>
+                        <p>Color: ${sistemaSolar[planeta3].color}</p>
+                        <p>Temperatura: ${sistemaSolar[planeta3].temperatura}</p>
+                    </div>           
+                </div>
+                `);
+                } else {
+                    document.write(`
+                <div id="general">
+                    <div class="planeta">
+                        <h1>${planeta1.toUpperCase()}</h1>
+                        <img src=${sistemaSolar[planeta1].imagen} alt=${planeta1}>
+                        <p>Color: ${sistemaSolar[planeta1].color}</p>
+                        <p>Temperatura: ${sistemaSolar[planeta1].temperatura}</p>
+                    </div>
+                    <div class="planeta">
+                        <h1>${planeta2.toUpperCase()}</h1>
+                        <img src=${sistemaSolar[planeta2].imagen} alt=${planeta2}>
+                        <p>Color: ${sistemaSolar[planeta2].color}</p>
+                        <p>Temperatura: ${sistemaSolar[planeta2].temperatura}</p>
+                    </div>
+                    <div class="planeta">
+                        <h1>${planeta3.toUpperCase()}</h1>
+                        <p>El planeta seleccionado no es valido</p>    
+                    </div>           
+                </div>
+                `);
+
+                }
+            } else {
+                document.write(`
+                <div id="general">
+                    <div class="planeta">
+                        <h1>${planeta1.toUpperCase()}</h1>
+                        <img src=${sistemaSolar[planeta1].imagen} alt=${planeta1}>
+                        <p>Color: ${sistemaSolar[planeta1].color}</p>
+                        <p>Temperatura: ${sistemaSolar[planeta1].temperatura}</p>
+                    </div>
+                    <div class="planeta">
+                        <h1>${planeta2.toUpperCase()}</h1>
+                        <p>El planeta seleccionado no es valido</p>    
+                    </div> 
+                    <div class="planeta">
+                        <p>No ha llegado a seleccionar un planeta</p>    
+                    </div>           
+                </div>
+                `);
+            }
+        } else {
+            document.write('No has elegido un planeta valido');
+        }
+
+
+    </script>
+</body>
+
+</html>
