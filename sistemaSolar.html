@@ -11,7 +11,7 @@
             background-color: black;
             color: white;
         }
-        #general{
+        #planetas{
             display: flex;
             justify-content: space-around;
             align-items: stretch;
@@ -21,7 +21,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 7px 10px 5px white;
+            box-shadow: 7px 10px 5px 3px white;
         }
         .planeta img{
             width: 200px;
@@ -31,6 +31,7 @@
 </head>
 
 <body>
+    <div id="planetas"></div>
     <script>
         let sistemaSolar = {
 
@@ -93,6 +94,7 @@
 
         };
         let { mercurio, venus, tierra, marte, jupiter, saturno, urano, neptuno, pluton } = sistemaSolar;
+        let tarjetas = document.getElementById('planetas');
 
         let planeta1 = window.prompt("Indica un planeta: ").toLowerCase();
         if (sistemaSolar[planeta1]) {
@@ -100,8 +102,8 @@
             if (sistemaSolar[planeta2] && planeta2 != planeta1) {
                 let planeta3 = window.prompt("Indica un planeta: ").toLowerCase();
                 if (sistemaSolar[planeta3] && (planeta3 != planeta1 && planeta3 != planeta2)) {
-                    document.write(`
-                <div id="general">
+                    tarjetas.innerHTML=`
+                
                     <div class="planeta">
                         <h1>${planeta1.toUpperCase()}</h1>
                         <img src=${sistemaSolar[planeta1].imagen} alt=${planeta1}>
@@ -120,11 +122,11 @@
                         <p>Color: ${sistemaSolar[planeta3].color}</p>
                         <p>Temperatura: ${sistemaSolar[planeta3].temperatura}</p>
                     </div>           
-                </div>
-                `);
+                
+                `;
                 } else {
-                    document.write(`
-                <div id="general">
+                    tarjetas.innerHTML=`
+                
                     <div class="planeta">
                         <h1>${planeta1.toUpperCase()}</h1>
                         <img src=${sistemaSolar[planeta1].imagen} alt=${planeta1}>
@@ -141,13 +143,13 @@
                         <h1>${planeta3.toUpperCase()}</h1>
                         <p>El planeta seleccionado no es valido</p>    
                     </div>           
-                </div>
-                `);
+                
+                `;
 
                 }
             } else {
-                document.write(`
-                <div id="general">
+                tarjetas.innerHTML=`
+                
                     <div class="planeta">
                         <h1>${planeta1.toUpperCase()}</h1>
                         <img src=${sistemaSolar[planeta1].imagen} alt=${planeta1}>
@@ -161,8 +163,8 @@
                     <div class="planeta">
                         <p>No ha llegado a seleccionar un planeta</p>    
                     </div>           
-                </div>
-                `);
+                
+                `;
             }
         } else {
             document.write('No has elegido un planeta valido');
